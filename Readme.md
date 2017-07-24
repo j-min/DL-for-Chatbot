@@ -24,19 +24,29 @@
 ## Dependencies
 
 ### Python 3
-#### ML/NLP
+- Codes are written in Anacodna Python 3.6, but might be work in Python 3.x.
+- Package management via Conda or virtualenv is recommended.
+
+### ML / NLP
 - PyTorch
 - NLTK
 - spacy
-- gensim
-- konlpy
 - sckit-learn
+- gensim
+- konlpy (requires Jpype3)
+- hgtk
+- hangulize
+- kroman
+- tossi
 
-#### Interactive Python / Plot
+
+
+### Interactive / DataFrame / Plot
 - jupyter
+- pandas
 - matplotlib
 
-#### Slack Bot
+### Slack Bot
 - websocket-client
 - beautifulsoup4
 - slacker
