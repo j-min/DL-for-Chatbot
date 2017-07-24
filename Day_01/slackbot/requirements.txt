@@ -1,0 +1,4 @@
+slacker
+beautifulsoup4
+websocket_client
+requests
