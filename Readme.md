@@ -24,6 +24,7 @@
 ## Dependencies
 
 ### Python 3
+#### ML/NLP
 - PyTorch
 - NLTK
 - spacy
@@ -31,5 +32,11 @@
 - konlpy
 - sckit-learn
 
+#### Interactive Python / Plot
 - jupyter
 - matplotlib
+
+#### Slack Bot
+- websocket-client
+- beautifulsoup4
+- slacker
