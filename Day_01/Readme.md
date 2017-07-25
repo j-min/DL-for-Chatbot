@@ -1,4 +1,7 @@
-## Day 01
+# Day 01
+
+## Introduction to chatbot
+- [Developing Korean Chatbot 101](https://www.slideshare.net/JaeminCho6/developing-korean-chatbot-101-71013451)
 
 ## Dataset
 
