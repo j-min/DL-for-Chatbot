@@ -39,7 +39,7 @@ def parse_args():
 
     #================ Path  ==============#
     parser.add_argument('--save_dir', type=str, default=os.path.join(base_dir, 'log'))
-    parser.add_argument('--data_dir', type=str, default=os.path.join(base_dir, 'data'))
+    parser.add_argument('--data_dir', type=str, default=os.path.join(base_dir, 'datasets'))
 
     #================ Misc. ==============#
     parser.add_argument('--log_every_epoch', type=int, default=1)
