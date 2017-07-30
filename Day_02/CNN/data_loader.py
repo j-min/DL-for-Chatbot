@@ -39,7 +39,7 @@ def get_loader(batch_size=100, max_size=20000, is_train=True, data_dir=None):
             batch_size=batch_size,
             sort_key=lambda x: len(x.text),
             train=True,  # if training set => repeat and shuffle : True
-            # repeat=False,
+            repeat=False,
             device=-1  # CPU: -1
         )
     else:
