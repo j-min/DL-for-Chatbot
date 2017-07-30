@@ -83,7 +83,7 @@ class Solver(object):
             logit = self.model(text)
 
             # Calculate loss
-            average_batch_loss = self.loss_fn(logit, true_labels)  # [1]
+            average_batch_loss = self.loss_fn(logit, label)  # [1]
             loss_history.append(average_batch_loss.data[0])  # Variable -> Tensor
 
         epoch_loss = np.mean(loss_history)
