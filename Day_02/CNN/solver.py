@@ -25,7 +25,8 @@ class Solver(object):
     def train(self):
         for epoch in tqdm(range(self.config.epochs)):
             loss_history = []
-            for batch in self.data_loader:
+
+            for batch_i, batch in enumerate(tqdm(self.data_loader)):
                 # text: [max_seq_len, batch_size]
                 # label: [batch_size]
                 text, label = batch.text, batch.label
@@ -71,7 +72,7 @@ class Solver(object):
         self.model.load_state_dict(torch.load(ckpt_path))
 
         loss_history = []
-        for batch in self.data_loader:
+        for _, batch in tqdm(enumerate(self.data_loader)):
             # text: [max_seq_len, batch_size]
             # label: [batch_size]
             text, label = batch.text, batch.label

@@ -30,34 +30,34 @@ def get_loader(batch_size=100, max_size=20000, is_train=True, data_dir=None):
         ],
         filter_pred=filter_pred)
 
+    print('Building Vocabulary \n')
     text_field.build_vocab(train_dataset, max_size=max_size - 2)
 
-    print(len(text_field.vocab))
-
-    test_dataset = data.TabularDataset(
-        path=test_file_path,
-        format='tsv',
-        fields=[
-            ('id', None),
-            ('text', text_field),
-            ('label', label_field)
-        ],
-        filter_pred=filter_pred)
-
     if is_train:
-        loader = iter(data.Iterator(
+        loader = data.Iterator(
             dataset=train_dataset,
             batch_size=batch_size,
             sort_key=lambda x: len(x.text),
             train=True,  # if training set => repeat and shuffle : True
+            # repeat=False,
             device=-1  # CPU: -1
-        ))
+        )
     else:
-        loader = iter(data.Iterator(
+        test_dataset = data.TabularDataset(
+            path=test_file_path,
+            format='tsv',
+            fields=[
+                ('id', None),
+                ('text', text_field),
+                ('label', label_field)
+            ],
+            filter_pred=filter_pred)
+
+        loader = data.Iterator(
             dataset=test_dataset,
             batch_size=batch_size,
             sort=False,
             train=False,
-            device=-1))
+            device=-1)
 
     return loader
