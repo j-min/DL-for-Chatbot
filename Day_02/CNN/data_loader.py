@@ -1,7 +1,7 @@
 from torchtext.vocab import Vocab
 from torchtext import data
 from utils import tokenizer
-import os
+from pathlib import Path
 import pickle
 
 
@@ -17,8 +17,8 @@ def get_loader(batch_size=100, max_size=20000, is_train=True, data_dir=None):
     text_field = data.Field(tokenize=tokenizer, sequential=True)
     label_field = data.Field(sequential=False, use_vocab=False, postprocessing=data.Pipeline(int))
 
-    train_file_path = os.path.join(data_dir, 'naver_train.txt')
-    test_file_path = os.path.join(data_dir, 'naver_test.txt')
+    train_file_path = Path(data_dir).joinpath('naver_train.txt')
+    test_file_path = Path(data_dir).joinpath('naver_test.txt')
 
     train_dataset = data.TabularDataset(
         path=train_file_path,
@@ -42,6 +42,10 @@ def get_loader(batch_size=100, max_size=20000, is_train=True, data_dir=None):
             repeat=False,
             device=-1  # CPU: -1
         )
+        vocab = text_field.vocab
+        with open('./vocab.pkl', 'wb') as f:
+            pickle.dump(vocab, f)
+
     else:
         test_dataset = data.TabularDataset(
             path=test_file_path,
@@ -61,3 +65,9 @@ def get_loader(batch_size=100, max_size=20000, is_train=True, data_dir=None):
             device=-1)
 
     return loader
+
+
+def get_vocab():
+    with open('./vocab.pkl', 'rb') as f:
+        vocab = pickle.load(f)
+    return vocab
