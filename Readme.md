@@ -1,6 +1,6 @@
 # Deep leaning for Chatbot Developers
 - Course Materials of [Deep leaning for Chatbot Developers](http://www.fastcampus.co.kr/data_seminar_chatbot/) (Sep. 2017)
-- Author: [Jaemin Cho](heythisischo@gmail.com)
+- Author: [Jaemin Cho](mailto:heythisischo@gmail.com)
 
 ## Contents
 
